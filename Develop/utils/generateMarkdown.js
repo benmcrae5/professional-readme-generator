@@ -25,7 +25,7 @@ function generateMarkdown(data) {
   //actual markdown code
   return `# ${data.title}
   ${shieldUrl}
-  ## description
+  ## Description
   ${data.description}
   ## Table of Contents
   - [Installation](#installation)
