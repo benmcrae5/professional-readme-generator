@@ -17,6 +17,7 @@ function generateMarkdown(data) {
       break;
     case 'WTFPL':
       shieldUrl = '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)'
+      break;
     case 'Other':
       shieldUrl = '![License: Other](https://img.shields.io/static/v1.svg?label=License&message=Other&color=blue)'
       break;
