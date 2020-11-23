@@ -45,7 +45,7 @@ function generateMarkdown(data) {
   ## Tests
   ${data.testInfo}
   ## Questions?
-  ${contactInstruct}
+  ${data.contactInstruct}
   please refer to: 
   [${data.gitHubUser}](https://github.com/${data.gitHubUser}) 
   Email:
