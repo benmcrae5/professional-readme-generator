@@ -46,14 +46,12 @@ function generateMarkdown(data) {
   ## Tests
   ${data.testInfo}
   ## Questions?
-  ${data.contactInstruct}
-  please refer to: 
-  [${data.gitHubUser}](https://github.com/${data.gitHubUser}) 
-  Email:
+  ${data.contactInstruct}  
+  please refer to:  
+  [${data.gitHubUser}](https://github.com/${data.gitHubUser})  
+  Email:  
   ${data.userEmail}
   `;
 }
 
 module.exports = generateMarkdown;
-
-//may need more under the "license" section!!
