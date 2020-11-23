@@ -46,29 +46,47 @@ const questions = [
         name: 'license',
         message: 'Please select a license for this project:',
         choices: [
-            '1','2','3','4','5','6','7','8',
+            'Apache License 2.0',
+            'GNU General Public License v3.0',
+            'MIT License',
+            'ISC License',
+            'Other',
         ], 
     },
-
+    {
+        type: 'input',
+        name: 'gitHubUser',
+        message: 'What github username is this under?',
+    },
+    {
+        type: 'input',
+        name: 'userEmail',
+        message: 'What email should people use when they have questions?',
+    },
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
-    console.log("got here!");
+function writeToFile(file, data) {
+    fs.writeFile(file, generateMarkdown(data), function(err) {
+        if (err) throw err;
+        console.log("File Created!");
+    })
 }
 
-function checkFileName(data, fileName, idx = 0) {
-    if (fs.existsSync(fileName)) {
+// check fileName for duplicates, if found, appends an idx to make unique
+function checkFileName(data, file, idx = 0) {
+    if (fs.existsSync(file)) {
         idx += 1;
         fileName = `${data.title}_README(${idx}).md`;
-        checkFileName(fileName, idx);
+        checkFileName(data, fileName, idx);
     }
-    console.log(fileName);
+    // console.log(fileName);
 }
 
+// added step in case other functionality was wanted in init()
 const askQuestions = () => {
     inquirer
-    .prompt(questions[0])
+    .prompt(questions)
     .then(ans => {
         fileName = `${ans.title}_README.md`;
         checkFileName(ans, fileName);
@@ -80,7 +98,6 @@ const askQuestions = () => {
     .catch(err => console.log(err))
 }
 
-const functionTest = () => console.log('HEYO!');
 // function to initialize program
 function init() {
     askQuestions();
