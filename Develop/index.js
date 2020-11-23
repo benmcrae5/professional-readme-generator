@@ -50,6 +50,7 @@ const questions = [
             'GNU General Public License v3.0',
             'MIT License',
             'ISC License',
+            'WTFPL',
             'Other',
         ], 
     },

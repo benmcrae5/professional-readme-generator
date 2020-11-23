@@ -1,26 +1,30 @@
 // function to generate markdown for README
 function generateMarkdown(data) {  
+  //determine which shield/badge to use:
   let shieldUrl;
   switch(data.license){
     case 'Apache License 2.0':
-      sheildUrl = 
+      shieldUrl = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
       break;
     case 'GNU General Public License v3.0':
-      sheildUrl = 
+      shieldUrl = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
       break;
     case 'MIT License':
-      sheildUrl = 
+      shieldUrl = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
       break;
     case 'ISC License':
-      sheildUrl = 
+      shieldUrl = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)'
       break;
+    case 'WTFPL':
+      shieldUrl = '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)'
     case 'Other':
-      sheildUrl = 
+      shieldUrl = '![License: Other](https://img.shields.io/static/v1.svg?label=License&message=Other&color=blue)'
       break;
   }
 
+  //actual markdown code
   return `# ${data.title}
-  
+  ${shieldUrl}
   ## description
   ${data.description}
   ## Table of Contents
@@ -42,7 +46,9 @@ function generateMarkdown(data) {
   ${data.testInfo}
   ## Questions?
   please refer to: 
-  ${data.gitHubUser} --- ${data.userEmail}
+  [${data.gitHubUser}](https://github.com/${data.gitHubUser}) 
+  Email:
+  ${data.userEmail}
   `;
 }
 
