@@ -64,6 +64,11 @@ const questions = [
         name: 'userEmail',
         message: 'What email should people use when they have questions?',
     },
+    {
+        type: 'input',
+        name: 'contactInstruct',
+        message: 'Are there any specific instructions for people to reach you?\n',
+    },
 ];
 
 // function to write README file
